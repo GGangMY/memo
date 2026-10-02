@@ -12,8 +12,8 @@ public class MemoService {
 
     private final MemoRepository memoRepository;
 
-    public MemoService(MemoRepository memoRepository) {
-        this.memoRepository = MemoRepository;
+    public MemoService(JdbcTemplate jdbcTemplate) {
+        this.memoRepository = new MemoRepository(jdbcTemplate);
     }
 
     public MemoResponseDto createMemo(MemoRequestDto requestDto) {
