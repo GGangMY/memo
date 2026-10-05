@@ -14,6 +14,7 @@ public class MemoService {
 
     private final MemoRepository memoRepository;
 
+    // @Autowired (생략됨)
     public MemoService(MemoRepository memoRepository) {
         this.memoRepository = memoRepository;
     }

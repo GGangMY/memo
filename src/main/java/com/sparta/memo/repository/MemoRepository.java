@@ -20,6 +20,7 @@ public class MemoRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
+    // @Autowired (생략됨)
     public MemoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
