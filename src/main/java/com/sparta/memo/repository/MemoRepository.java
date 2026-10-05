@@ -57,6 +57,7 @@ public class MemoRepository {
                 Long id = rs.getLong("id");
                 String username = rs.getString("username");
                 String contents = rs.getString("contents");
+
                 return new MemoResponseDto(id, username, contents);
             }
         });
@@ -66,7 +67,6 @@ public class MemoRepository {
         // 해당 메모가 DB에 존재하는지 확인
         Memo memo = findById(id);
         if(memo != null) {
-
 
             return id;
         } else {
@@ -85,6 +85,7 @@ public class MemoRepository {
         String sql = "DELETE FROM memo WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
+
     public Memo findById(Long id) {
         // DB 조회
         String sql = "SELECT * FROM memo WHERE id = ?";
@@ -94,10 +95,12 @@ public class MemoRepository {
                 Memo memo = new Memo();
                 memo.setUsername(resultSet.getString("username"));
                 memo.setContents(resultSet.getString("contents"));
+
                 return memo;
             } else {
                 return null;
             }
         }, id);
     }
+
 }
